@@ -1,0 +1,39 @@
+{
+  "name": "docvy",
+  "version": "0.0.0",
+  "description": "A Pleasant Document Browser",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GochoMugo/docvy.git"
+  },
+  "keywords": [
+    "document",
+    "browser"
+  ],
+  "author": "GochoMugo <mugo@forfuture.co.ke>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GochoMugo/docvy/issues"
+  },
+  "homepage": "https://github.com/GochoMugo/docvy",
+  "dependencies": {
+    "commander": "latest",
+    "debug": "latest",
+    "express": "latest",
+    "lodash": "latest"
+  },
+  "devDependencies": {
+    "grunt": "latest",
+    "grunt-contrib-jshint": "latest",
+    "grunt-mocha-test": "latest",
+    "mocha": "latest",
+    "should": "latest"
+  }
+}

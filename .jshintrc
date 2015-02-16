@@ -1,0 +1,10 @@
+{
+  "browser": true,
+  "curly": true,
+  "eqeqeq": true,
+  "indent": 2,
+  "node": true,
+  "strict": true,
+  "undef": true,
+  "unused": true
+}
