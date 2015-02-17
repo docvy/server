@@ -2,7 +2,7 @@
   "name": "docvy",
   "version": "0.0.0",
   "description": "A Pleasant Document Browser",
-  "main": "index.js",
+  "main": "assets/welcome.html",
   "directories": {
     "test": "test"
   },
@@ -27,7 +27,8 @@
     "commander": "latest",
     "debug": "latest",
     "express": "latest",
-    "lodash": "latest"
+    "lodash": "latest",
+    "request": "latest"
   },
   "devDependencies": {
     "grunt": "latest",

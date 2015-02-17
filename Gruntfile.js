@@ -1,9 +1,17 @@
+/**
+* Run script for Grunt, task runner
+*
+* The MIT License (MIT)
+* Copyright (c) 2015 GochoMugo <mugo@forfuture.co.ke>
+*/
+
+
 exports = module.exports = function(grunt) {
   "use strict";
 
   grunt.initConfig({
     jshint: {
-      all: ["Gruntfile.js", "lib/*.js", "test/*.js"],
+      all: ["Gruntfile.js", "lib/*.js", "test/*.js", "assets/js/*.js"],
       options: {
         jshintrc: ".jshintrc"
       }
