@@ -1,0 +1,68 @@
+<header>
+
+  <!--Page Navigation-->
+  <nav class="navbar navbar-default navbar-main" role="navigation">
+    <div class="container-fluid">
+
+      <!--navbar-header-->
+      <div class="navbar-header">
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-collapse-1">
+          <span class="sr-only">Toggle Navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a href="/#/" class="navbar-brand">
+          Docvy
+        </a>
+      </div><!--/navbar-header-->
+
+      <!--navbar-content-->
+      <div id="navbar-collapse-1" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown">
+              Server <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="/stop">Stop Server</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div><!--navbar-content-->
+    </div>
+  </nav><!--/Page Navigation-->
+
+</header>
+
+<section class="container">
+
+  <!-- A notification box -->
+  <div class="center">
+    <div class="alert alert-{{ alert._class }} alert-flush bounceIn"
+           data-ng-show="alert.visible">
+      {{ alert.message }}
+    </div>
+  </div>
+
+  <!--Showing directories -->
+  <div>
+    Directories:
+    <ul>
+      <li data-ng-repeat="dir in content.directories">
+        <a data-ng-click="readdir(dir.path)">{{ dir.filename }}</a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Showing files -->
+  <div>
+    Files:
+    <ul>
+      <li data-ng-repeat="file in content.files">
+        <a href="/#/read/{{ file.path }}">{{ file.filename }}</a>
+      </li>
+    </ul>
+  </div>
+
+</section>

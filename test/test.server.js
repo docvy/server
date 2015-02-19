@@ -115,6 +115,18 @@ describe("Server endpoint /files/", function() {
   "use strict";
   var _port = require("../lib/config.json").server.port; 
   var _url =  "http://localhost:" + _port + "/files/";
+  var _cwd = path.resolve(".");
+
+  function testRes(req_options, done) {
+    request.get(req_options, function(error, res, body) {
+      should(error).not.be.ok;
+      res.statusCode.should.eql(200);
+      var num_files = body.directories.length + body.files.length;
+      var real_num = fs.readdirSync(_cwd).length;
+      num_files.should.eql(real_num);
+      done();
+    });
+  }
 
   before(function(done) {
     server.start(done);
@@ -125,15 +137,11 @@ describe("Server endpoint /files/", function() {
   });
 
   it("reads directory from param <dirpath>", function(done) {
-    var cwd = path.resolve(".");
-    request.get({uri: _url, qs: {dirpath: cwd}}, function(error, res, body) {
-      should(error).not.be.ok;
-      res.statusCode.should.eql(200);
-      var num_files = body.directories.length + body.files.length;
-      var real_num = fs.readdirSync(cwd).length;
-      num_files.should.eql(real_num);
-      done();
-    });
+    testRes({uri: _url, qs: {dirpath: _cwd}}, done);
+  });
+
+  it("reads from cwd if param <dirpath> is missing", function(done) {
+    testRes({uri: _url}, done);
   });
 
 });

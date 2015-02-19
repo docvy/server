@@ -12,6 +12,7 @@ var path = require("path");
 
 
 // npm-installed modules
+var lodash = require("lodash");
 var should = require("should");
 
 
@@ -28,7 +29,7 @@ describe("dfs.stat callback of files", function() {
     dfs.stat(cwd, cwd_files, function(err, files) {
       should(err).not.be.ok;
       stat_files = files;
-      all_files = files.directories + files.files;
+      all_files = lodash.flatten([files.directories, files.files]);
       for (var index = 0, length = all_files; index < length; index++) {
         filenames.push(all_files[index].filename);
       }
@@ -49,9 +50,10 @@ describe("dfs.stat callback of files", function() {
 
   it("has impoved fs.stats", function() {
     var file;
-    for (var index = 0, length = all_files; index < length; index++) {
+    for (var index = 0, length = all_files.length; index < length; index++) {
       file = all_files[index];
-      file.should.have.property("filename");
+      should(file.filename).be.a.String;
+      should(file.path).be.a.String;
     }
   });
 

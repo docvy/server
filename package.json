@@ -25,6 +25,7 @@
   "homepage": "https://github.com/GochoMugo/docvy",
   "dependencies": {
     "commander": "latest",
+    "custom-logger": "latest",
     "debug": "latest",
     "express": "latest",
     "lodash": "latest",
@@ -33,8 +34,12 @@
   "devDependencies": {
     "grunt": "latest",
     "grunt-contrib-jshint": "latest",
+    "grunt-contrib-sass": "latest",
     "grunt-mocha-test": "latest",
     "mocha": "latest",
     "should": "latest"
+  },
+  "bin": {
+    "docvy": "./bin/docvy"
   }
 }

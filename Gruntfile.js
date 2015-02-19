@@ -10,6 +10,14 @@ exports = module.exports = function(grunt) {
   "use strict";
 
   grunt.initConfig({
+    csslint: {
+      all: {
+        src: ["assets/css/*"],
+        options: {
+          csslintrc: ".csslintrc"
+        }
+      }
+    },
     jshint: {
       all: ["Gruntfile.js", "lib/*.js", "test/*.js", "assets/js/*.js"],
       options: {
@@ -25,12 +33,26 @@ exports = module.exports = function(grunt) {
         },
         src: ['test/test.*.js']
       }
+    },
+    sass: {
+      all: {
+        src: ["[A-z]*.sass"],
+        dest: "assets/css",
+        cwd: "assets/sass",
+        expand: true,
+        ext: ".css",
+        extDot: "first",
+        options: { sourcemap: "none" }
+      }
     }
   });
 
+  grunt.loadNpmTasks("grunt-contrib-csslint");
   grunt.loadNpmTasks("grunt-contrib-jshint");
+  grunt.loadNpmTasks("grunt-contrib-sass");
   grunt.loadNpmTasks("grunt-mocha-test");
 
-  grunt.registerTask("test", ["jshint", "mochaTest"]);
+  grunt.registerTask("compile", ["sass"]);
+  grunt.registerTask("test", ["compile", "csslint", "jshint", "mochaTest"]);
 
 };
