@@ -5,9 +5,12 @@
 * Copyright (c) 2015 GochoMugo <mugo@forfuture.co.ke>
 */
 
-
 // Silence jshint about mocha's global vars
-/* global describe, it */
+/* global describe, it, before, after, afterEach */
+
+
+(function() {
+"use strict";
 
 
 // built-in modules
@@ -25,7 +28,6 @@ var server = require("../lib/server");
 
 
 describe("Server module", function() {
-  "use strict";
 
   it.skip("should have a .start function for starting server", function() {
     should(server.start).be.a.Function;
@@ -99,7 +101,7 @@ describe("Server endpoint /stop", function() {
         should(err).not.be.ok;
         res.statusCode.should.eql(200);
         body.message.should.eql("acknowledged");
-        request.del(_url, function(err, res, body) {
+        request.del(_url, function(err) {
           err.should.be.ok;
           err.code.should.eql("ECONNREFUSED");
           done();
@@ -112,7 +114,7 @@ describe("Server endpoint /stop", function() {
 
 
 describe("Server endpoint /files/", function() {
-  "use strict";
+
   var _port = require("../lib/config.json").server.port; 
   var _url =  "http://localhost:" + _port + "/files/";
   var _cwd = path.resolve(".");
@@ -148,8 +150,9 @@ describe("Server endpoint /files/", function() {
 
 
 describe.skip("Server endpoint /file/", function() {
-  "use strict";
 
   it("gets file data handled by an extension");
 
 });
+
+})(); // Wrapper

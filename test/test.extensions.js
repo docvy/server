@@ -5,6 +5,15 @@
 * Copyright (c) 2015 GochoMugo <mugo@forfuture.co.ke>
 */
 
+
+// Silence jshint about mocha's global vars
+/* global describe, it */
+
+
+(function() {
+"use strict";
+
+
 // built-in modules
 var fs = require("fs");
 var path = require("path");
@@ -50,3 +59,6 @@ describe("each extension", function() {
   it("should have .load() for loading compatible files");
 
 });
+
+
+})(); // Wrapper

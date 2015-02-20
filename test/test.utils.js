@@ -9,6 +9,8 @@
 // Silence jshint about mocha's global vars
 /* global describe, it */
 
+(function() {
+"use strict";
 
 // npm-installed modules
 var lodash = require("lodash");
@@ -20,7 +22,6 @@ var utils = require("../lib/utils");
 
 
 describe("Utilities module", function() {
-  "use strict";
 
   it("should export the builtin `util` module, AS IS", function() {
     var util = require("util");
@@ -42,7 +43,6 @@ describe("Utilities module", function() {
 
 
 describe("utils.fillObject", function() {
-  "use strict";
 
   it("fills in left-out options with defaults", function() {
     var defaults = {
@@ -85,7 +85,7 @@ describe("utils.fillObject", function() {
 
 
 describe("utils.getOptions", function() {
-  "use strict";
+
   var options = require("../lib/config.json");
 
   it("should return options in lib/config.json if called without arg", function() {
@@ -131,7 +131,6 @@ describe("utils.getOptions", function() {
 
 
 describe("utils.defineCallback", function() {
-  "use strict";
 
   it("returns a function if no callback is passed", function() {
     utils.defineCallback().should.be.a.Function;
@@ -145,3 +144,5 @@ describe("utils.defineCallback", function() {
   });
 
 });
+
+})(); // Wrapper

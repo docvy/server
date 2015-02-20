@@ -6,6 +6,14 @@
 */
 
 
+// Silence jshint about mocha's global vars
+/* global describe, it */
+
+
+(function() {
+"use strict";
+
+
 // built-in modules
 var fs = require("fs");
 var path = require("path");
@@ -66,3 +74,5 @@ describe("dfs.stat callback of files", function() {
   });
 
 });
+
+})(); // Wrapper
