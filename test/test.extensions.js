@@ -16,10 +16,10 @@
 
 // built-in modules
 var fs = require("fs");
-var path = require("path");
 
 
 // npm-installed modules
+var ncp = require("ncp").ncp;
 var should = require("should");
 
 
@@ -27,36 +27,52 @@ var should = require("should");
 var dextensions = require("../lib/extensions");
 
 
-describe("dextensions.load()", function() {
+describe("dextensions.extDir()", function() {
 
-  it("loads an extension given a file extensions");
-
-  it("passes an error if extension is not registered");
-
-});
-
-
-describe("dextensions.lookup()", function() {
-
-  it("loads all available extensions");
-
-  it("checks if extensions for a filetype is available");
+  it("returns directory for extensions", function() {
+    var dir = dextensions.extDir();
+    dir.should.be.a.String;
+  });
 
 });
 
 
-describe("dextensions.lookupPath()", function() {
+describe.only("dextensions.run()", function() {
+  var testAccepts = ["DovyTestType"];
 
-  it("returns the directory where extensions are looked for");
+  before(function(done) {
+    // copying over all extensions
+    var testExtensionsPath = __dirname + "/mock/extensions/";
+    var extensions = fs.readdirSync(testExtensionsPath);
+    var num_extensions = 0;
+    extensions.forEach(function(extension) {
+      ncp(testExtensionsPath + extension, dextensions.extDir() + "/"
+      + extension, function(err) {
+        if (err) { done(err); }
+        if (++num_extensions === extensions.length) { done(); }
+      });
+    });
+  });
 
-});
+  it("runs an extension for a given type", function(done) {
+    var data = "some data for me";
+    dextensions.handle(testAccepts, data, function(err, _type,
+    pData) {
+      should(err).not.be.ok;
+      _type.should.be.ok;
+      pData.should.be.ok;
+      done();
+    });
+  });
 
-
-describe("each extension", function() {
-
-  it("should have an .extnames property");
-
-  it("should have .load() for loading compatible files");
+  it("passes an error if no extension can handle type", function(done) {
+    var accepts = ["NonExistingType"];
+    var data = "blah blah";
+    dextensions.handle(accepts, data, function(err) {
+      err.should.be.ok;
+      done();
+    });
+  });
 
 });
 
