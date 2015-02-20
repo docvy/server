@@ -1,5 +1,5 @@
 /**
-* The Docvy Extensions loader
+* Tests aganst The Docvy Extensions loader
 *
 * The MIT License (MIT)
 * Copyright (c) 2015 GochoMugo <mugo@forfuture.co.ke>
@@ -15,7 +15,7 @@ var should = require("should");
 
 
 // own modules
-var dextensions = require("../extensions");
+var dextensions = require("../lib/extensions");
 
 
 describe("dextensions.load()", function() {
@@ -32,6 +32,13 @@ describe("dextensions.lookup()", function() {
   it("loads all available extensions");
 
   it("checks if extensions for a filetype is available");
+
+});
+
+
+describe("dextensions.lookupPath()", function() {
+
+  it("returns the directory where extensions are looked for");
 
 });
 

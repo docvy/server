@@ -1,7 +1,7 @@
 {
   "name": "docvy",
   "version": "0.0.0",
-  "description": "A Pleasant Document Browser",
+  "description": "The Docvy Server",
   "main": "assets/welcome.html",
   "directories": {
     "test": "test"
@@ -25,7 +25,7 @@
   "homepage": "https://github.com/GochoMugo/docvy",
   "dependencies": {
     "commander": "latest",
-    "custom-logger": "latest",
+    "custom-logger": "git://github.com/GochoMugo/custom-logger",
     "debug": "latest",
     "express": "latest",
     "lodash": "latest",
@@ -34,7 +34,6 @@
   "devDependencies": {
     "grunt": "latest",
     "grunt-contrib-jshint": "latest",
-    "grunt-contrib-sass": "latest",
     "grunt-mocha-test": "latest",
     "mocha": "latest",
     "should": "latest"
