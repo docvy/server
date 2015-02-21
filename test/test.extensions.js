@@ -7,7 +7,7 @@
 
 
 // Silence jshint about mocha's global vars
-/* global describe, it */
+/* global describe, it, before */
 
 
 (function() {
@@ -38,7 +38,7 @@ describe("dextensions.extDir()", function() {
 
 
 describe.only("dextensions.run()", function() {
-  var testAccepts = ["DovyTestType"];
+  var testAccepts = ["DocvyTestType"];
 
   before(function(done) {
     // copying over all extensions

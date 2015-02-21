@@ -12,6 +12,7 @@
 (function() {
 "use strict";
 
+
 // npm-installed modules
 var lodash = require("lodash");
 var should = require("should");
