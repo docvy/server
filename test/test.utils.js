@@ -13,6 +13,10 @@
 "use strict";
 
 
+// builtin modules
+var path = require("path");
+
+
 // npm-installed modules
 var lodash = require("lodash");
 var should = require("should");
@@ -29,6 +33,10 @@ describe("Utilities module", function() {
     for (var key in util) {
       should(util[key]).eql(utils[key]);
     }
+  });
+
+  it("should export the inbuilt configuration values", function() {
+    utils.config.should.eql(require("../lib/config.json"));
   });
 
   it.skip("has .isObject for checking for objects", function() {
@@ -178,6 +186,28 @@ describe("utils.getAccepts", function() {
         accept.should.not.containEql(whitespace);
       }); // whitespaces.forEach
     }); // accepts.forEach
+  });
+
+});
+
+
+describe("utils.getPath", function() {
+
+  it("returns application-specific paths", function() {
+    var homePath = utils.getPath("app.home");
+    var logsPath = utils.getPath("app.logs");
+    var pluginsPath = utils.getPath("app.plugins");
+    var paths = [homePath, logsPath, pluginsPath];
+    paths.forEach(function(_path) {
+      _path.should.be.a.String;
+    });
+    logsPath.should.eql(path.resolve(homePath + "/logs"));
+    pluginsPath.should.eql(path.resolve(homePath + "/plugins"));
+  });
+
+  it("returns null if no path is found", function() {
+    should(utils.getPath()).be.null;
+    should(utils.getPath("non-existing-path")).be.null;
   });
 
 });

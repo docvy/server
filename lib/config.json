@@ -1,6 +1,6 @@
 {
-  "directories": {
-    "plugins": "$HOME/plugins/"
+  "plugins": {
+    "timeout_ms": 45000
   },
   "server": {
     "port": 9432
