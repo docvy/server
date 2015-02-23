@@ -213,4 +213,17 @@ describe("utils.getPath", function() {
 });
 
 
+describe("utils.getDatatype", function() {
+
+  it("returns extname without the . (dot)", function() {
+    utils.getDatatype(".html").should.eql("html");
+  });
+
+  it("return * (asterisk) if its an empty extname", function() {
+    utils.getDatatype("").should.eql("*");
+  });
+
+});
+
+
 })(); // Wrapper
