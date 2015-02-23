@@ -1,8 +1,8 @@
 {
-  "name": "docvy",
+  "name": "docvy-server",
   "version": "0.0.0",
   "description": "The Docvy Server",
-  "main": "assets/welcome.html",
+  "main": "lib/docvy.js",
   "directories": {
     "test": "test"
   },
@@ -11,18 +11,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/GochoMugo/docvy.git"
+    "url": "https://github.com/GochoMugo/docvy-server.git"
   },
   "keywords": [
     "document",
-    "browser"
+    "server"
   ],
   "author": "GochoMugo <mugo@forfuture.co.ke>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/GochoMugo/docvy/issues"
+    "url": "https://github.com/GochoMugo/docvy-server/issues"
   },
-  "homepage": "https://github.com/GochoMugo/docvy",
+  "homepage": "https://github.com/GochoMugo/docvy-server",
   "dependencies": {
     "commander": "latest",
     "custom-logger": "git://github.com/GochoMugo/custom-logger",
@@ -35,6 +35,7 @@
     "grunt": "latest",
     "grunt-contrib-jshint": "latest",
     "grunt-mocha-test": "latest",
+    "mkdir": "latest",
     "mocha": "latest",
     "ncp": "latest",
     "should": "latest"

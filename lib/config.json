@@ -1,4 +1,7 @@
 {
+  "directories": {
+    "plugins": "$HOME/plugins/"
+  },
   "server": {
     "port": 9432
   }

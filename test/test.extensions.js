@@ -19,6 +19,7 @@ var fs = require("fs");
 
 
 // npm-installed modules
+var mkdirp = require("mkdirp");
 var ncp = require("ncp").ncp;
 var should = require("should");
 
@@ -44,11 +45,13 @@ describe.only("dextensions.run()", function() {
     // copying over all extensions
     var testExtensionsPath = __dirname + "/mock/extensions/";
     var extensions = fs.readdirSync(testExtensionsPath);
-    var num_extensions = 0;
+    var num_extensions = 0, destPath;
+    mkdirp.sync(dextensions.extDir());
     extensions.forEach(function(extension) {
-      ncp(testExtensionsPath + extension, dextensions.extDir() + "/"
-      + extension, function(err) {
-        if (err) { done(err); }
+      destPath = dextensions.extDir() + "/" + extension;
+      if (fs.existsSync(destPath)) { return done(); }
+      ncp(testExtensionsPath + extension, destPath, function(err) {
+        if (err) { return done(err); }
         if (++num_extensions === extensions.length) { done(); }
       });
     });
