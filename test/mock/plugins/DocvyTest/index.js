@@ -10,6 +10,9 @@
 "use strict";
 
 
+exports.description = "A Plugin for testing the docvy-server";
+
+
 exports.accepts = accepts;
 function accepts() {
   return ["DocvyTestTypeRaw"];

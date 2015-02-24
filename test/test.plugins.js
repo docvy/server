@@ -29,25 +29,26 @@ var dplugins = require("../lib/plugins");
 var utils = require("../lib/utils");
 
 
-describe.only("dplugins.run()", function() {
+// copying over all test plugins
+before(function(done) {
+  var testPluginsPath = __dirname + "/mock/plugins/";
+  var plugins = fs.readdirSync(testPluginsPath);
+  var num_plugins = 0, destPath;
+  mkdirp.sync(utils.getPath("app.plugins"));
+  plugins.forEach(function(plugin) {
+    destPath = utils.getPath("app.plugins") + "/" + plugin;
+    if (fs.existsSync(destPath)) { return done(); }
+    ncp(testPluginsPath + plugin, destPath, function(err) {
+      if (err) { return done(err); }
+      if (++num_plugins === plugins.length) { done(); }
+    }); // ncp
+  }); // plugins.forEach
+}); // before
+
+
+describe("dplugins.run()", function() {
   var testDatatype = "DocvyTestTypeRaw";
   var testExpects = ["DocvyTestTypeProcessed"];
-
-  before(function(done) {
-    // copying over all plugins
-    var testPluginsPath = __dirname + "/mock/plugins/";
-    var plugins = fs.readdirSync(testPluginsPath);
-    var num_plugins = 0, destPath;
-    mkdirp.sync(utils.getPath("app.plugins"));
-    plugins.forEach(function(plugin) {
-      destPath = utils.getPath("app.plugins") + "/" + plugin;
-      if (fs.existsSync(destPath)) { return done(); }
-      ncp(testPluginsPath + plugin, destPath, function(err) {
-        if (err) { return done(err); }
-        if (++num_plugins === plugins.length) { done(); }
-      }); // ncp
-    }); // plugins.forEach
-  }); // before
 
   it("runs a plugin", function(done) {
     var data = "some data for me";
@@ -70,6 +71,29 @@ describe.only("dplugins.run()", function() {
   });
 
   it("passes an error if plugin hangs");
+
+});
+
+
+describe("dplugins.getPluginsInformation()", function() {
+
+  it("passes an array of information", function(done) {
+    dplugins.getPluginsInformation(function(err, pluginsInfo) {
+      pluginsInfo.should.be.an.Array;
+      done();
+    });
+  });
+
+  it("each info object must have a name", function(done) {
+    var plugin_dirs = fs.readdirSync(utils.getPath("app.plugins"));
+    var num_plugins = plugin_dirs.length;
+    dplugins.getPluginsInformation(function(err, pluginsInfo) {
+      pluginsInfo.forEach(function(pluginInfo) {
+        should(pluginInfo.name).be.ok;
+        if (--num_plugins === 0) { return done(); }
+      });
+    });
+  });
 
 });
 

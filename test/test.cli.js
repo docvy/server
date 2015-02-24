@@ -27,7 +27,7 @@ var server = require("../lib/server");
 // module variables
 var config = require("../lib/config.json");
 var rootDir = process.cwd();
-var docvyCmd = rootDir + "/bin/docvy";
+var docvyCmd = rootDir + "/bin/docvy-server";
 
 
 function cmd(args) {
