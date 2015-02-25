@@ -1,7 +1,9 @@
 {
+  "camelcase": true,
   "curly": true,
   "eqeqeq": true,
   "indent": 2,
+  "maxlen": 72,
   "node": true,
   "strict": true,
   "undef": true,

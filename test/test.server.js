@@ -5,9 +5,6 @@
 * Copyright (c) 2015 GochoMugo <mugo@forfuture.co.ke>
 */
 
-// Silence jshint about mocha's global vars
-/* global describe, it, before, after, afterEach */
-
 
 (function() {
 "use strict";

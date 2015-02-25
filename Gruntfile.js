@@ -11,7 +11,10 @@ exports = module.exports = function(grunt) {
 
   grunt.initConfig({
     jshint: {
-      all: ["Gruntfile.js", "lib/**/*.js", "test/**/*.js", "bin/docvy-server"],
+      all: [
+        "Gruntfile.js", "lib/**/*.js", "test/**/*.js",
+        "bin/docvy-server"
+      ],
       options: {
         jshintrc: true
       }

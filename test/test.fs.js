@@ -6,10 +6,6 @@
 */
 
 
-// Silence jshint about mocha's global vars
-/* global describe, it, before */
-
-
 (function() {
 "use strict";
 
