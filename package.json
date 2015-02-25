@@ -2,7 +2,7 @@
   "name": "docvy-server",
   "version": "0.0.0",
   "description": "The Docvy Server",
-  "main": "lib/docvy.js",
+  "main": "lib/server.js",
   "directories": {
     "test": "test"
   },
