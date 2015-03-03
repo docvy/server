@@ -24,8 +24,9 @@
   },
   "homepage": "https://github.com/GochoMugo/docvy-server",
   "dependencies": {
+    "docvy-utils": "latest",
     "commander": "latest",
-    "custom-logger": "git://github.com/GochoMugo/custom-logger",
+    "custom-logger": "GochoMugo/custom-logger",
     "debug": "latest",
     "express": "latest",
     "lodash": "latest",
