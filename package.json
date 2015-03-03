@@ -14,7 +14,7 @@
     "url": "https://github.com/GochoMugo/docvy-server.git"
   },
   "keywords": [
-    "document",
+    "docvy",
     "server"
   ],
   "author": "GochoMugo <mugo@forfuture.co.ke>",
@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/GochoMugo/docvy-server",
   "dependencies": {
-    "docvy-utils": "latest",
+    "docvy-utils": "GochoMugo/docvy-utils",
     "commander": "latest",
     "custom-logger": "GochoMugo/custom-logger",
     "debug": "latest",
@@ -42,6 +42,6 @@
     "should": "latest"
   },
   "bin": {
-    "docvy": "./bin/docvy"
+    "docvy-server": "./bin/docvy-server"
   }
 }
