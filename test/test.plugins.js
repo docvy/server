@@ -15,6 +15,7 @@ var fs = require("fs");
 
 
 // npm-installed modules
+var lodash = require("lodash");
 var mkdirp = require("mkdirp");
 var ncp = require("ncp").ncp;
 var should = require("should");
@@ -81,9 +82,8 @@ describe("dplugins.getPluginsInformation()", function() {
   });
 
   it("each info object must have a name", function(done) {
-    var plugin_dirs = fs.readdirSync(utils.getPath("app.plugins"));
-    var num_plugins = plugin_dirs.length;
     dplugins.getPluginsInformation(function(err, pluginsInfo) {
+      var num_plugins = pluginsInfo.length;
       pluginsInfo.forEach(function(pluginInfo) {
         should(pluginInfo.name).be.ok;
         if (--num_plugins === 0) { return done(); }

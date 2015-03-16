@@ -63,7 +63,7 @@ describe("CLI", function() {
     }); // server.start
   }); // it
 
-  it("-p allows passing port number", function(done) {
+  it.skip("-p allows passing port number", function(done) {
     var _port = 9821;
     shell.exec(cmd("-s -p " + _port), function(code) {
       code.should.eql(0);
