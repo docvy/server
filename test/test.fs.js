@@ -6,7 +6,6 @@
 */
 
 
-(function() {
 "use strict";
 
 
@@ -26,36 +25,36 @@ var dfs = require("../lib/fs");
 
 describe("dfs.stat callback of files", function() {
   var cwd = path.resolve(".");
-  var cwd_files = fs.readdirSync(cwd);
-  var stat_files, all_files, filenames = [];
+  var cwdFiles = fs.readdirSync(cwd);
+  var statFiles, allFiles, filenames = [];
 
   before(function(done) {
-    dfs.stat(cwd, cwd_files, function(err, files) {
+    dfs.stat(cwd, cwdFiles, function(err, files) {
       should(err).not.be.ok;
-      stat_files = files;
-      all_files = lodash.flatten([files.directories, files.files]);
-      for (var index = 0, length = all_files; index < length; index++) {
-        filenames.push(all_files[index].filename);
+      statFiles = files;
+      allFiles = lodash.flatten([files.directories, files.files]);
+      for (var index = 0, length = allFiles; index < length; index++) {
+        filenames.push(allFiles[index].filename);
       }
       done();
     });
   });
 
   it("holds array of files", function() {
-    stat_files.directories.should.be.an.Array;
-    stat_files.files.should.be.an.Array;
+    statFiles.directories.should.be.an.Array;
+    statFiles.files.should.be.an.Array;
   });
 
   it("contains files in the directory", function() {
-    for (var index = 0, length = cwd_files; index < length; index++) {
-      all_files.should.containEql(cwd_files[index]);
+    for (var index = 0, length = cwdFiles; index < length; index++) {
+      allFiles.should.containEql(cwdFiles[index]);
     }
   });
 
   it("has impoved fs.stats", function() {
     var file;
-    for (var index = 0, length = all_files.length; index < length; index++) {
-      file = all_files[index];
+    for (var index = 0; index < allFiles.length; index++) {
+      file = allFiles[index];
       should(file.filename).be.a.String;
       should(file.path).be.a.String;
     }
@@ -64,7 +63,7 @@ describe("dfs.stat callback of files", function() {
   it("is passed along by dfs.readdir", function(done) {
     dfs.readdir(cwd, function(err, files) {
       should(err).not.be.ok;
-      files.should.eql(stat_files);
+      files.should.eql(statFiles);
       done();
     });
   });
@@ -91,6 +90,3 @@ describe("dfs.readFile", function() {
   });
 
 });
-
-
-})(); // Wrapper

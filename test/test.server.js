@@ -6,7 +6,6 @@
 */
 
 
-(function() {
 "use strict";
 
 
@@ -26,7 +25,8 @@ var server = require("../lib/server");
 
 describe("Server module", function() {
 
-  it.skip("should have a .start function for starting server", function() {
+  it.skip("should have a .start function for starting server",
+  function() {
     should(server.start).be.a.Function;
   });
 
@@ -116,13 +116,13 @@ describe("Server endpoint /files/", function() {
   var _url =  "http://localhost:" + _port + "/files/";
   var _cwd = path.resolve(".");
 
-  function testRes(req_options, done) {
-    request.get(req_options, function(error, res, body) {
+  function testRes(reqOptions, done) {
+    request.get(reqOptions, function(error, res, body) {
       should(error).not.be.ok;
       res.statusCode.should.eql(200);
-      var num_files = body.directories.length + body.files.length;
-      var real_num = fs.readdirSync(_cwd).length;
-      num_files.should.eql(real_num);
+      var numFiles = body.directories.length + body.files.length;
+      var realNum = fs.readdirSync(_cwd).length;
+      numFiles.should.eql(realNum);
       done();
     });
   }
@@ -151,5 +151,3 @@ describe.skip("Server endpoint /file/", function() {
   it("gets file data handled by an extension");
 
 });
-
-})(); // Wrapper

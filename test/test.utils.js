@@ -6,17 +6,11 @@
 */
 
 
-(function() {
 "use strict";
 
 
-// builtin modules
-var path = require("path");
-
-
 // npm-installed modules
-var lodash = require("lodash");
-var should = require("should");
+var should = require("should"); // jshint ignore: line
 
 
 // own modules
@@ -79,6 +73,3 @@ describe("utils.getDatatype", function() {
   });
 
 });
-
-
-})(); // Wrapper

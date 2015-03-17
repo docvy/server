@@ -6,7 +6,6 @@
 */
 
 
-(function() {
 "use strict";
 
 
@@ -85,6 +84,3 @@ describe("CLI", function() {
   });
 
 });
-
-
-})(); // Wrapper

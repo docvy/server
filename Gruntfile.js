@@ -11,12 +11,11 @@ exports = module.exports = function(grunt) {
 
   grunt.initConfig({
     jshint: {
-      all: [
-        "Gruntfile.js", "lib/**/*.js", "test/**/*.js",
-        "bin/docvy-server"
-      ],
-      options: {
-        jshintrc: true
+      options: require("./.jshintrc.json"),
+      main:  ["Gruntfile.js", "lib/**/*.js", "bin/docvy-server"],
+      test: {
+        options: require("./test/.jshintrc.json"),
+        src: ["test/**/*.js"]
       }
     },
     mochaTest: {

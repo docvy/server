@@ -6,16 +6,12 @@
 */
 
 
-(function() {
-"use strict";
+//"use strict";
 
 
-// npm-installed modules
-var should = require("should");
+//// npm-installed modules
+//var should = require("should");
 
 
-// own modules
-var errors = require("../lib/errors");
-
-
-})(); // Wrapper
+//// own modules
+//var errors = require("../lib/errors");

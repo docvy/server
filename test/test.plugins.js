@@ -6,7 +6,6 @@
 */
 
 
-(function() {
 "use strict";
 
 
@@ -15,7 +14,6 @@ var fs = require("fs");
 
 
 // npm-installed modules
-var lodash = require("lodash");
 var mkdirp = require("mkdirp");
 var ncp = require("ncp").ncp;
 var should = require("should");
@@ -30,14 +28,14 @@ var utils = require("../lib/utils");
 before(function(done) {
   var testPluginsPath = __dirname + "/mock/plugins/";
   var plugins = fs.readdirSync(testPluginsPath);
-  var num_plugins = 0, destPath;
+  var numPlugins = 0, destPath;
   mkdirp.sync(utils.getPath("app.plugins"));
   plugins.forEach(function(plugin) {
     destPath = utils.getPath("app.plugins") + "/" + plugin;
     if (fs.existsSync(destPath)) { return done(); }
     ncp(testPluginsPath + plugin, destPath, function(err) {
       if (err) { return done(err); }
-      if (++num_plugins === plugins.length) { done(); }
+      if (++numPlugins === plugins.length) { done(); }
     }); // ncp
   }); // plugins.forEach
 }); // before
@@ -83,15 +81,12 @@ describe("dplugins.getPluginsInformation()", function() {
 
   it("each info object must have a name", function(done) {
     dplugins.getPluginsInformation(function(err, pluginsInfo) {
-      var num_plugins = pluginsInfo.length;
+      var numPlugins = pluginsInfo.length;
       pluginsInfo.forEach(function(pluginInfo) {
         should(pluginInfo.name).be.ok;
-        if (--num_plugins === 0) { return done(); }
+        if (--numPlugins === 0) { return done(); }
       });
     });
   });
 
 });
-
-
-})(); // Wrapper
