@@ -42,6 +42,7 @@
     "mkdir": "latest",
     "mocha": "latest",
     "ncp": "latest",
+    "shelljs": "latest",
     "should": "latest"
   },
   "bin": {
