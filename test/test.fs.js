@@ -29,6 +29,7 @@ describe("dfs.stat callback of files", function() {
   var statFiles, allFiles, filenames = [];
 
   before(function(done) {
+    cwdFiles.push("..");
     dfs.stat(cwd, cwdFiles, function(err, files) {
       should(err).not.be.ok;
       statFiles = files;

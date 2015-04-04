@@ -121,7 +121,7 @@ describe("Server endpoint /files/", function() {
       should(error).not.be.ok;
       res.statusCode.should.eql(200);
       var numFiles = body.directories.length + body.files.length;
-      var realNum = fs.readdirSync(_cwd).length;
+      var realNum = fs.readdirSync(_cwd).length + 1;
       numFiles.should.eql(realNum);
       done();
     });
