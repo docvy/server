@@ -6,9 +6,21 @@
 > The Docvy Server
 
 
+## installation:
+
+Using [npm][npm] from [github][repo] (**bleeding edge**):
+
+```bash
+⇒ npm install GochoMugo/docvy-server#develop
+```
+
+
 ## usage:
 
 This component may be used programmatically, as in the docvy application, or from the terminal as a stand-alone application.
+
+
+### terminal usage:
 
 Help information for terminal usage:
 
@@ -31,12 +43,166 @@ Help information for terminal usage:
 ```
 
 
-## installation:
+### programmatic usage:
 
-Using [npm][npm] from [github][repo] (**bleeding edge**):
+```js
+var server = require("docvy-server");
+```
 
-```bash
-⇒ npm install GochoMugo/docvy-server#develop
+#### server.start([options [, callback]])
+
+* `options` (Object):
+  * `port` (Number): port to start server on
+* `callback` (Function):
+  * On success, called with no arguments passed
+  * On failure, called with an error object passed
+
+
+#### server.stop([callback])
+
+* `callback` (Function): called once the server has stopped receiving new connections. Note that the existing connections will be serviced till completion.
+
+
+### API:
+
+URL endpoints to use after starting server:
+
+* [browsing directories](#dirs)
+* [reading files](#files)
+* [serving plugin content](#plugin-content)
+* [listing installed plugins](#plugin-list)
+* [installing new plugins](#plugin-install)
+* [uninstalling plugins](#plugin-uninstall)
+* [graceful shutdown](#shutdown)
+
+
+<a name="dirs"></a>
+#### Browsing directories:
+
+```
+GET /files/
+```
+
+**Query Parameters:**
+
+* `dirpath` (String): absolute path to target directory
+* `ignoreDotFiles` (Boolean): whether to ignore dot files. Default: `false`
+
+Sample Response: **not complete**
+```json
+{
+  "directories": [],
+  "files": []
+}
+```
+
+
+<a name="files"></a>
+#### Reading files:
+
+```
+GET /file/
+```
+
+** Query Parameters:**
+
+* `filepath` (String): absolute path to target file
+* `expects` (Array[String]): array of content-type to return the data in
+
+Sample Response:
+```json
+{
+  "type": "<MIME>",
+  "data": "<content-of-file-after-conversion>"
+}
+```
+
+
+<a name="plugin-content"></a>
+#### Serving Plugin Content:
+
+```
+GET /plugins/www/:pluginName
+```
+
+**Path Parameters:**
+
+* `pluginName`: name of plugin
+
+This serves the files packaged in the plugin from the root directory (of the plugin).
+
+
+<a name="plugin-list"></a>
+#### Listing installed plugins:
+
+```
+GET /plugins/list/
+```
+
+Sample Response:
+```json
+{
+  "plugins": [
+    {
+      "name": "<pluginName>",
+      "version": "<pluginVersion>",
+      "icon": "<URL-to-plugin-icon"
+    }
+  ]
+}
+```
+
+
+<a name="plugin-install"></a>
+#### Installing new plugins:
+
+```
+POST /plugins/install/:pluginName
+```
+
+**Path Parameters:**
+
+* `pluginName`: name of plugin
+
+Sample Response:
+```json
+{
+  "installed": "<pluginName>"
+}
+```
+
+
+<a name="plugin-uninstall"></a>
+#### Uninstalling plugins:
+
+```
+DELETE /plugins/uninstall/:pluginName
+```
+
+**Path Parameters:**
+
+* `pluginName`: name of plugin
+
+Sample Response:
+```json
+{
+  "uninstalled": "<pluginName>"
+}
+```
+
+
+<a name="shutdown"></a>
+#### Graceful Shutdown of Server:
+
+```
+DELETE /stop/
+```
+
+Sample Response:
+```json
+{
+  "message": "acknowledged"
+}
 ```
 
 
