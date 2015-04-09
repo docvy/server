@@ -1,2 +1,15 @@
-# ignore tests
+# tests
 test/
+
+# Gruntfile
+Gruntfile.js
+
+# JSHint
+.jshintrc.json
+
+# CI config file
+.travis.yml
+
+# Makefile
+Makefile
+
