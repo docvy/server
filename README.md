@@ -6,6 +6,17 @@
 > The Docvy Server
 
 
+## table of contents:
+
+* [installation](#installation)
+* [terminal usage](#terminal)
+* [programmatic usage](#programmatic)
+* [API endpoints](#api)
+* [todo](#todo)
+* [license](#license)
+
+
+<a name="installation"></a>
 ## installation:
 
 Using [npm][npm] from [github][repo] (**bleeding edge**):
@@ -20,6 +31,7 @@ Using [npm][npm] from [github][repo] (**bleeding edge**):
 This component may be used programmatically, as in the docvy application, or from the terminal as a stand-alone application.
 
 
+<a name="terminal"></a>
 ### terminal usage:
 
 Help information for terminal usage:
@@ -43,6 +55,7 @@ Help information for terminal usage:
 ```
 
 
+<a name="programmatic"></a>
 ### programmatic usage:
 
 ```js
@@ -63,6 +76,7 @@ var server = require("docvy-server");
 * `callback` (Function): called once the server has stopped receiving new connections. Note that the existing connections will be serviced till completion.
 
 
+<a name="api"></a>
 ### API:
 
 URL endpoints to use after starting server:
@@ -206,11 +220,13 @@ Sample Response:
 ```
 
 
+<a name="todo"></a>
 ## todo:
 
 * [ ] test server responses with JSON Schema validation
 
 
+<a name="license"></a>
 ## license:
 
 __The MIT License (MIT)__
