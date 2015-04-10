@@ -79,7 +79,7 @@ URL endpoints to use after starting server:
 <a name="dirs"></a>
 #### Browsing directories:
 
-```
+```http
 GET /files/
 ```
 
@@ -100,7 +100,7 @@ Sample Response: **not complete**
 <a name="files"></a>
 #### Reading files:
 
-```
+```http
 GET /file/
 ```
 
@@ -121,7 +121,7 @@ Sample Response:
 <a name="plugin-content"></a>
 #### Serving Plugin Content:
 
-```
+```http
 GET /plugins/www/:pluginName
 ```
 
@@ -135,7 +135,7 @@ This serves the files packaged in the plugin from the root directory (of the plu
 <a name="plugin-list"></a>
 #### Listing installed plugins:
 
-```
+```http
 GET /plugins/list/
 ```
 
@@ -156,7 +156,7 @@ Sample Response:
 <a name="plugin-install"></a>
 #### Installing new plugins:
 
-```
+```http
 POST /plugins/install/:pluginName
 ```
 
@@ -175,7 +175,7 @@ Sample Response:
 <a name="plugin-uninstall"></a>
 #### Uninstalling plugins:
 
-```
+```http
 DELETE /plugins/uninstall/:pluginName
 ```
 
@@ -194,7 +194,7 @@ Sample Response:
 <a name="shutdown"></a>
 #### Graceful Shutdown of Server:
 
-```
+```http
 DELETE /stop/
 ```
 
@@ -204,6 +204,11 @@ Sample Response:
   "message": "acknowledged"
 }
 ```
+
+
+## todo:
+
+* [ ] test server responses with JSON Schema validation
 
 
 ## license:
