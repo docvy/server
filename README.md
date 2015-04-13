@@ -102,7 +102,7 @@ GET /files/
 * `dirpath` (String): absolute path to target directory
 * `ignoreDotFiles` (Boolean): whether to ignore dot files. Default: `false`
 
-Success Response: **not complete**
+Success Response [[Schema Reference](https://github.com/GochoMugo/docvy-server/tree/develop/schemas/files.json)]: **not complete**
 ```json
 {
   "directories": [],
