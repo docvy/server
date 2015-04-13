@@ -197,7 +197,7 @@ DELETE /plugins/uninstall/:pluginName
 
 * `pluginName`: name of plugin
 
-Success Response:
+Success Response [[Schema Reference](https://github.com/GochoMugo/docvy-server/tree/develop/schemas/plugins.uninstall.json)]:
 ```json
 {
   "uninstalled": "<pluginName>"
