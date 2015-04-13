@@ -102,7 +102,7 @@ GET /files/
 * `dirpath` (String): absolute path to target directory
 * `ignoreDotFiles` (Boolean): whether to ignore dot files. Default: `false`
 
-Sample Response: **not complete**
+Success Response: **not complete**
 ```json
 {
   "directories": [],
@@ -123,7 +123,7 @@ GET /file/
 * `filepath` (String): absolute path to target file
 * `expects` (Array[String]): array of content-type to return the data in
 
-Sample Response:
+Success Response:
 ```json
 {
   "type": "<MIME>",
@@ -153,7 +153,7 @@ This serves the files packaged in the plugin from the root directory (of the plu
 GET /plugins/list/
 ```
 
-Sample Response:
+Success Response:
 ```json
 {
   "plugins": [
@@ -178,7 +178,7 @@ POST /plugins/install/:pluginName
 
 * `pluginName`: name of plugin
 
-Sample Response:
+Success Response:
 ```json
 {
   "installed": "<pluginName>"
@@ -197,7 +197,7 @@ DELETE /plugins/uninstall/:pluginName
 
 * `pluginName`: name of plugin
 
-Sample Response:
+Success Response:
 ```json
 {
   "uninstalled": "<pluginName>"
@@ -212,7 +212,7 @@ Sample Response:
 DELETE /stop/
 ```
 
-Sample Response:
+Success Response [[Schema Reference](https://github.com/GochoMugo/docvy-server/tree/develop/schemas/stop.json)]:
 ```json
 {
   "message": "acknowledged"
