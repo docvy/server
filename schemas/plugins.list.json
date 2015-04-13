@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "properties": {
+    "plugins": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": { "type": "string" },
+        "version": { "type": "string" },
+        "icon": { "type": "string" }
+      }
+    }
+  }
+}

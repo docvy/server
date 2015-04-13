@@ -153,7 +153,7 @@ This serves the files packaged in the plugin from the root directory (of the plu
 GET /plugins/list/
 ```
 
-Success Response:
+Success Response [[Schema Reference](https://github.com/GochoMugo/docvy-server/tree/develop/schemas/plugins.list.json)]:
 ```json
 {
   "plugins": [
