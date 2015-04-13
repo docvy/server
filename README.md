@@ -178,7 +178,7 @@ POST /plugins/install/:pluginName
 
 * `pluginName`: name of plugin
 
-Success Response:
+Success Response [[Schema Reference](https://github.com/GochoMugo/docvy-server/tree/develop/schemas/plugins.install.json)]:
 ```json
 {
   "installed": "<pluginName>"
