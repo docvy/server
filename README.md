@@ -123,7 +123,7 @@ GET /file/
 * `filepath` (String): absolute path to target file
 * `expects` (Array[String]): array of content-type to return the data in
 
-Success Response:
+Success Response [[Schema Reference](https://github.com/GochoMugo/docvy-server/tree/develop/schemas/file.json)]:
 ```json
 {
   "type": "<MIME>",
