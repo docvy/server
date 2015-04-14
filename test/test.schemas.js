@@ -65,7 +65,7 @@ function testResponse(method, reqOptions, schema, done) {
 }
 
 
-describe.only("validate", function() {
+describe("validate", function() {
 
   before(function(done) {
     server.start({ port: _port }, done);
