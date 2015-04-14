@@ -102,7 +102,7 @@ GET /files/
 * `dirpath` (String): absolute path to target directory
 * `ignoreDotFiles` (Boolean): whether to ignore dot files. Default: `false`
 
-Success Response [[Schema Reference](https://github.com/GochoMugo/docvy-server/tree/develop/schemas/files.json)]: **not complete**
+Success Response [[Schema Reference](https://raw.githubusercontent.com/GochoMugo/docvy-server/develop/schemas/files.json)]: **not complete**
 ```json
 {
   "directories": [],
@@ -118,12 +118,12 @@ Success Response [[Schema Reference](https://github.com/GochoMugo/docvy-server/t
 GET /file/
 ```
 
-** Query Parameters:**
+**Query Parameters:**
 
 * `filepath` (String): absolute path to target file
 * `expects` (Array[String]): array of content-type to return the data in
 
-Success Response [[Schema Reference](https://github.com/GochoMugo/docvy-server/tree/develop/schemas/file.json)]:
+Success Response [[Schema Reference](https://raw.githubusercontent.com/GochoMugo/docvy-server/develop/schemas/file.json)]:
 ```json
 {
   "type": "<MIME>",
@@ -153,7 +153,7 @@ This serves the files packaged in the plugin from the root directory (of the plu
 GET /plugins/list/
 ```
 
-Success Response [[Schema Reference](https://github.com/GochoMugo/docvy-server/tree/develop/schemas/plugins.list.json)]:
+Success Response [[Schema Reference](https://raw.githubusercontent.com/GochoMugo/docvy-server/develop/schemas/plugins.list.json)]:
 ```json
 {
   "plugins": [
@@ -178,7 +178,7 @@ POST /plugins/install/:pluginName
 
 * `pluginName`: name of plugin
 
-Success Response [[Schema Reference](https://github.com/GochoMugo/docvy-server/tree/develop/schemas/plugins.install.json)]:
+Success Response [[Schema Reference](https://raw.githubusercontent.com/GochoMugo/docvy-server/develop/schemas/plugins.install.json)]:
 ```json
 {
   "installed": "<pluginName>"
@@ -197,7 +197,7 @@ DELETE /plugins/uninstall/:pluginName
 
 * `pluginName`: name of plugin
 
-Success Response [[Schema Reference](https://github.com/GochoMugo/docvy-server/tree/develop/schemas/plugins.uninstall.json)]:
+Success Response [[Schema Reference](https://raw.githubusercontent.com/GochoMugo/docvy-server/develop/schemas/plugins.uninstall.json)]:
 ```json
 {
   "uninstalled": "<pluginName>"
@@ -212,7 +212,7 @@ Success Response [[Schema Reference](https://github.com/GochoMugo/docvy-server/t
 DELETE /stop/
 ```
 
-Success Response [[Schema Reference](https://github.com/GochoMugo/docvy-server/tree/develop/schemas/stop.json)]:
+Success Response [[Schema Reference](https://raw.githubusercontent.com/GochoMugo/docvy-server/develop/schemas/stop.json)]:
 ```json
 {
   "message": "acknowledged"
@@ -223,7 +223,9 @@ Success Response [[Schema Reference](https://github.com/GochoMugo/docvy-server/t
 <a name="todo"></a>
 ## todo:
 
+* [X] include schemas for responses
 * [ ] test server responses with JSON Schema validation
+* [ ] fix $ref in schemas
 
 
 <a name="license"></a>

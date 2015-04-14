@@ -5,10 +5,7 @@
     "plugins": {
       "type": "array",
       "items": {
-        "type": "object",
-        "name": { "type": "string" },
-        "version": { "type": "string" },
-        "icon": { "type": "string" }
+        "$ref": "plugin-descriptor.json#/"
       }
     }
   }

@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "properties": {
+    "name": { "type": "string" },
+    "description": { "type": "string" },
+    "version": { "type": "string" },
+    "icon": { "type": "string" },
+    "homepage": { "type": "string" },
+    "author": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "email": {
+              "type": "string",
+              "format": "email"
+            }
+          }
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "icon": {
+      "type": "string",
+      "format": "uri"
+    }
+  }
+}

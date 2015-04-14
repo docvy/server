@@ -20,18 +20,20 @@ var server = require("../lib/server");
 
 
 // module variables
-var validator = new Jayschema();
+var schemaPath = __dirname + "/../schemas/";
+var validator = new Jayschema(function(ref, callback) {
+  return callback(null, require(schemaPath + ref));
+});
 var _port = 9080;
 var _url = "http://localhost:" + _port;
 var schemas = {
   file: require("../schemas/file"),
   files: require("../schemas/files"),
+  pluginDescriptor: require("../schemas/plugin-descriptor"),
   pluginsInstall: require("../schemas/plugins.install"),
-  pluginsList: require("../schemas/plugins.list"),
   pluginUninstall: require("../schemas/plugins.uninstall"),
   stop: require("../schemas/stop")
 };
-
 
 
 /**
@@ -76,12 +78,22 @@ describe("validate", function() {
   });
 
   it.skip("/file/", function(done) {
-    testResponse("get", { uri: "/file/" }, schemas.file, done);
+    testResponse("get", {
+      uri: "/file/",
+      qs: {
+        filepath: __dirname + "/mock/data.txt"
+      }
+    }, schemas.file, done);
   });
 
   it("/plugins/list", function(done) {
     testResponse("get", { uri: "/plugins/list" },
-      schemas.pluginsList, done);
+      {
+        plugins: {
+          type: "array",
+          items: schemas.pluginDescriptor
+        }
+      }, done);
   });
 
   it.skip("/plugins/install", function(done) {
