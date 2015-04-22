@@ -1,7 +1,7 @@
 
 # docvy-server
 
-[![Build Status](https://travis-ci.org/GochoMugo/docvy-server.svg?branch=develop)](https://travis-ci.org/GochoMugo/docvy-server) [![Coverage Status](https://coveralls.io/repos/GochoMugo/docvy-server/badge.svg?branch=develop)](https://coveralls.io/r/GochoMugo/docvy-server?branch=develop)
+[![Build Status](https://travis-ci.org/docvy/server.svg?branch=develop)](https://travis-ci.org/docvy/server) [![Coverage Status](https://coveralls.io/repos/docvy/server/badge.svg?branch=develop)](https://coveralls.io/r/docvy/server?branch=develop)
 
 > The Docvy Server
 
@@ -22,7 +22,7 @@
 Using [npm][npm] from [github][repo] (**bleeding edge**):
 
 ```bash
-⇒ npm install GochoMugo/docvy-server#develop
+⇒ npm install docvy/server#develop
 ```
 
 
@@ -102,7 +102,7 @@ GET /files/
 * `dirpath` (String): absolute path to target directory
 * `ignoreDotFiles` (Boolean): whether to ignore dot files. Default: `false`
 
-Success Response [[Schema Reference](https://raw.githubusercontent.com/GochoMugo/docvy-server/develop/schemas/files.json)]: **not complete**
+Success Response [[Schema Reference](https://raw.githubusercontent.com/docvy/server/develop/schemas/files.json)]: **not complete**
 ```json
 {
   "directories": [],
@@ -123,7 +123,7 @@ GET /file/
 * `filepath` (String): absolute path to target file
 * `expects` (Array[String]): array of content-type to return the data in
 
-Success Response [[Schema Reference](https://raw.githubusercontent.com/GochoMugo/docvy-server/develop/schemas/file.json)]:
+Success Response [[Schema Reference](https://raw.githubusercontent.com/docvy/server/develop/schemas/file.json)]:
 ```json
 {
   "type": "<MIME>",
@@ -153,7 +153,7 @@ This serves the files packaged in the plugin from the root directory (of the plu
 GET /plugins/list/
 ```
 
-Success Response [[Schema Reference](https://raw.githubusercontent.com/GochoMugo/docvy-server/develop/schemas/plugins.list.json)]:
+Success Response [[Schema Reference](https://raw.githubusercontent.com/docvy/server/develop/schemas/plugins.list.json)]:
 ```json
 {
   "plugins": [
@@ -178,7 +178,7 @@ POST /plugins/install/:pluginName
 
 * `pluginName`: name of plugin
 
-Success Response [[Schema Reference](https://raw.githubusercontent.com/GochoMugo/docvy-server/develop/schemas/plugins.install.json)]:
+Success Response [[Schema Reference](https://raw.githubusercontent.com/docvy/server/develop/schemas/plugins.install.json)]:
 ```json
 {
   "installed": "<pluginName>"
@@ -197,7 +197,7 @@ DELETE /plugins/uninstall/:pluginName
 
 * `pluginName`: name of plugin
 
-Success Response [[Schema Reference](https://raw.githubusercontent.com/GochoMugo/docvy-server/develop/schemas/plugins.uninstall.json)]:
+Success Response [[Schema Reference](https://raw.githubusercontent.com/docvy/server/develop/schemas/plugins.uninstall.json)]:
 ```json
 {
   "uninstalled": "<pluginName>"
@@ -212,7 +212,7 @@ Success Response [[Schema Reference](https://raw.githubusercontent.com/GochoMugo
 DELETE /stop/
 ```
 
-Success Response [[Schema Reference](https://raw.githubusercontent.com/GochoMugo/docvy-server/develop/schemas/stop.json)]:
+Success Response [[Schema Reference](https://raw.githubusercontent.com/docvy/server/develop/schemas/stop.json)]:
 ```json
 {
   "message": "acknowledged"
@@ -233,9 +233,10 @@ Success Response [[Schema Reference](https://raw.githubusercontent.com/GochoMugo
 
 __The MIT License (MIT)__
 
+Copyright (c) 2015 Forfuture LLC <we@forfuture.co.ke>
 Copyright (c) 2015 GochoMugo <mugo@forfuture.co.ke>
 
 
 [npm]:https://npmjs.com
-[repo]:https://github.com/GochoMugo/docvy-server
+[repo]:https://github.com/docvy/server
 

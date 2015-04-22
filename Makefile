@@ -12,13 +12,13 @@ node_modules:
 
 
 node_modules/docvy-cache:
-	ln -sf ${UP_DIR}/docvy-cache $$PWD/$@
+	ln -sf ${UP_DIR}/cache $$PWD/$@
 
 
 node_modules/docvy-plugin-installer:
-	ln -sf ${UP_DIR}/docvy-plugin-installer $$PWD/$@
+	ln -sf ${UP_DIR}/plugin-installer $$PWD/$@
 
 
 node_modules/docvy-utils:
-	ln -sf ${UP_DIR}/docvy-utils $$PWD/$@
+	ln -sf ${UP_DIR}/utils $$PWD/$@
 

@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/GochoMugo/docvy-server.git"
+    "url": "https://github.com/docvy/server.git"
   },
   "keywords": [
     "docvy",
@@ -20,13 +20,13 @@
   "author": "GochoMugo <mugo@forfuture.co.ke>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/GochoMugo/docvy-server/issues"
+    "url": "https://github.com/docvy/server/issues"
   },
-  "homepage": "https://github.com/GochoMugo/docvy-server",
+  "homepage": "https://github.com/docvy/server",
   "dependencies": {
-    "docvy-cache": "GochoMugo/docvy-cache#develop",
-    "docvy-plugin-installer": "GochoMugo/docvy-plugin-installer#develop",
-    "docvy-utils": "GochoMugo/docvy-utils#develop",
+    "docvy-cache": "docvy/cache#develop",
+    "docvy-plugin-installer": "docvy/plugin-installer#develop",
+    "docvy-utils": "docvy/utils#develop",
     "commander": "latest",
     "custom-logger": "GochoMugo/custom-logger",
     "debug": "latest",
