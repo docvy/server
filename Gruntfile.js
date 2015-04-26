@@ -19,13 +19,13 @@ exports = module.exports = function(grunt) {
       }
     },
     mochaTest: {
-      test: {
+      unit: {
         options: {
           reporter: 'spec',
           quiet: false,
           clearRequireCache: false
         },
-        src: ['test/test.*.js']
+        src: ['test/**/test.*.js']
       }
     }
   });

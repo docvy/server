@@ -16,11 +16,11 @@ var should = require("should");
 
 
 // own modules
-var server = require("../lib/server");
+var server = require("../../lib/server");
 
 
 // module variables
-var config = require("../lib/config.json");
+var config = require("../../lib/config.json");
 var rootDir = process.cwd();
 var docvyCmd = rootDir + "/bin/docvy-server";
 

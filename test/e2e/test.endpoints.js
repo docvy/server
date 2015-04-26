@@ -16,23 +16,23 @@ var should = require("should");
 
 
 // own modules
-var server = require("../lib/server");
+var server = require("../../lib/server");
 
 
 // module variables
-var schemaPath = __dirname + "/../schemas/";
+var schemaPath = __dirname + "/../../schemas/";
 var validator = new Jayschema(function(ref, callback) {
   return callback(null, require(schemaPath + ref));
 });
 var _port = 9080;
 var _url = "http://localhost:" + _port;
 var schemas = {
-  file: require("../schemas/file"),
-  files: require("../schemas/files"),
-  pluginDescriptor: require("../schemas/plugin-descriptor"),
-  pluginsInstall: require("../schemas/plugins.install"),
-  pluginUninstall: require("../schemas/plugins.uninstall"),
-  stop: require("../schemas/stop")
+  file: require("../../schemas/file"),
+  files: require("../../schemas/files"),
+  pluginDescriptor: require("../../schemas/plugin-descriptor"),
+  pluginsInstall: require("../../schemas/plugins.install"),
+  pluginUninstall: require("../../schemas/plugins.uninstall"),
+  stop: require("../../schemas/stop")
 };
 
 

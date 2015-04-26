@@ -22,3 +22,7 @@ node_modules/docvy-plugin-installer:
 node_modules/docvy-utils:
 	ln -sf ${UP_DIR}/utils $$PWD/$@
 
+
+clean:
+	rm -rf ~/.docvy/plugins/DocvyTest*
+

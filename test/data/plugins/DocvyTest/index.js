@@ -27,7 +27,14 @@ function produces() {
 
 exports.run = run;
 function run(rawdata, expects, callback) {
-  return callback(null, "DocvyTestTypeProcessed", rawdata);
+  switch (process.env.DOCVY_TEST_PLUGIN_MODE) {
+  case "success":
+    return callback(null, "DocvyTestTypeProcessed", rawdata);
+  case "crash":
+    throw new Error();
+  case "hung":
+    // do nothing: dont call callback
+  }
 }
 
 

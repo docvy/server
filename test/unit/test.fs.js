@@ -20,7 +20,7 @@ var should = require("should");
 
 
 // own modules
-var dfs = require("../lib/fs");
+var dfs = require("../../lib/fs");
 
 
 describe("dfs.stat callback of files", function() {
@@ -75,7 +75,7 @@ describe("dfs.stat callback of files", function() {
 describe("dfs.readFile", function() {
 
   it("reads file data as string", function(done) {
-    dfs.readFile(__dirname + "/mock/data.txt", function(err, data) {
+    dfs.readFile(__dirname + "/data/data.txt", function(err, data) {
       should(err).not.be.ok;
       data.should.be.a.String;
       done();
@@ -83,7 +83,7 @@ describe("dfs.readFile", function() {
   });
 
   it("passes error if file is not found", function(done) {
-    dfs.readFile(__dirname +"/mock/nonExistant", function(err, data) {
+    dfs.readFile(__dirname +"/data/nonExistant", function(err, data) {
       err.should.be.ok;
       should(data).not.be.ok;
       done();
