@@ -24,12 +24,13 @@
   },
   "homepage": "https://github.com/docvy/server",
   "dependencies": {
-    "docvy-cache": "docvy/cache#develop",
-    "docvy-plugin-installer": "docvy/plugin-installer#develop",
-    "docvy-utils": "docvy/utils#develop",
+    "capq": "0.0.0",
     "commander": "latest",
     "custom-logger": "GochoMugo/custom-logger",
     "debug": "latest",
+    "docvy-cache": "docvy/cache#develop",
+    "docvy-plugin-installer": "docvy/plugin-installer#develop",
+    "docvy-utils": "docvy/utils#develop",
     "express": "latest",
     "lodash": "latest",
     "request": "latest"
