@@ -1,15 +1,17 @@
 # tests
 test/
 
-# Gruntfile
+# for grunt
 Gruntfile.js
 
-# JSHint
-.jshintrc.json
+# eslint config file
+.eslintrc
 
-# CI config file
+# travis ci config file
 .travis.yml
+
+# editor configuration
+.editorconfig
 
 # Makefile
 Makefile
-

@@ -1,9 +1,9 @@
 
 # docvy-server
 
-[![Build Status](https://travis-ci.org/docvy/server.svg?branch=develop)](https://travis-ci.org/docvy/server) [![Coverage Status](https://coveralls.io/repos/docvy/server/badge.svg?branch=develop)](https://coveralls.io/r/docvy/server?branch=develop)
-
 > The Docvy Server
+
+[![node](https://img.shields.io/node/v/docvy-server.svg?style=flat-square)](https://www.npmjs.com/package/docvy-server) [![npm](https://img.shields.io/npm/v/docvy-server.svg?style=flat-square)](https://www.npmjs.com/package/docvy-server) [![Travis](https://img.shields.io/travis/docvy/server.svg?style=flat-square)](https://travis-ci.org/docvy/server) [![Gemnasium](https://img.shields.io/gemnasium/docvy/server.svg?style=flat-square)](https://gemnasium.com/docvy/server) [![Coveralls](https://img.shields.io/coveralls/docvy/server.svg?style=flat-square)](https://coveralls.io/github/docvy/server?branch=master)
 
 
 ## table of contents:
@@ -239,4 +239,3 @@ Copyright (c) 2015 GochoMugo <mugo@forfuture.co.ke>
 
 [npm]:https://npmjs.com
 [repo]:https://github.com/docvy/server
-
