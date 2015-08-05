@@ -4,7 +4,7 @@
     },
     "rules": {
         "comma-dangle": [2, "always-multiline"],
-        "new-cap": [2],
+        "new-cap": [0],
         "no-shadow": [2, { "hoist": "never" }],
         "no-use-before-define": [2, "nofunc"],
         "no-underscore-dangle": [0]
