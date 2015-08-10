@@ -19,10 +19,10 @@
 <a name="installation"></a>
 ## installation:
 
-Using [npm][npm] from [github][repo] (**bleeding edge**):
+Using [npm][npm]:
 
 ```bash
-⇒ npm install docvy/server#develop
+⇒ npm install docvy-server
 ```
 
 
@@ -37,21 +37,29 @@ This component may be used programmatically, as in the docvy application, or fro
 Help information for terminal usage:
 
 ```bash
-⇒ docvy-server -h
+⇒ docvy-server
 
-  Usage: docvy-server [options]
+  docvy-server: The Docvy Server
 
-  Options:
+      H, help        show this help information
+      V, version     show version information
+      s, start       start server
+      t, status      show status of server
+      x, stop        stop server
 
-    -h, --help        output usage information
-    -V, --version     output the version number
-    -p, --port <num>  Start server at port <num>
-    -a, --attach      Attach server process
-    -s, --start       Start server
-    -x, --stop        Stop server
-    -t, --status      Get status of server
-    -d, --debug       Output debug information
+  See https://github.com/docvy/app for feature requests and bug reports
+```
 
+Starting application:
+
+```bash
+⇒ docvy-server start --port=9432 --attach
+```
+
+Enabling debug output:
+
+```bash
+⇒ docvy-server start --debug
 ```
 
 
@@ -97,18 +105,7 @@ URL endpoints to use after starting server:
 GET /files/
 ```
 
-**Query Parameters:**
-
-* `dirpath` (String): absolute path to target directory
-* `ignoreDotFiles` (Boolean): whether to ignore dot files. Default: `false`
-
-Success Response [[Schema Reference](https://raw.githubusercontent.com/docvy/server/develop/schemas/files.json)]: **not complete**
-```json
-{
-  "directories": [],
-  "files": []
-}
-```
+See [query parameters](https://github.com/forfutureLLC/svc-fbr#parameters).
 
 
 <a name="files"></a>
@@ -118,9 +115,10 @@ Success Response [[Schema Reference](https://raw.githubusercontent.com/docvy/ser
 GET /file/
 ```
 
-**Query Parameters:**
+See [query parameters](https://github.com/forfutureLLC/svc-fbr#parameters).
 
-* `filepath` (String): absolute path to target file
+**Also:**
+
 * `expects` (Array[String]): array of content-type to return the data in
 
 Success Response [[Schema Reference](https://raw.githubusercontent.com/docvy/server/develop/schemas/file.json)]:
@@ -218,14 +216,6 @@ Success Response [[Schema Reference](https://raw.githubusercontent.com/docvy/ser
   "message": "acknowledged"
 }
 ```
-
-
-<a name="todo"></a>
-## todo:
-
-* [X] include schemas for responses
-* [ ] test server responses with JSON Schema validation
-* [ ] fix $ref in schemas
 
 
 <a name="license"></a>

@@ -29,26 +29,23 @@
   },
   "homepage": "https://github.com/docvy/server",
   "dependencies": {
-    "cli-output": "^0.0.0",
+    "cli-output": "^0.1.0",
     "debug": "^2.2.0",
-    "docvy-cache": "docvy/cache#develop",
-    "docvy-plugin-installer": "docvy/plugin-installer#develop",
-    "docvy-utils": "^0.1.1",
-    "express": "^4.13.1",
-    "lodash": "^3.10.0",
-    "ncp": "^2.0.0",
-    "npm": "^2.13.2",
+    "docvy-plugin-installer": "0.0.0",
+    "docvy-utils": "^0.1.2",
+    "express": "^4.13.3",
+    "lodash": "^3.10.1",
     "request": "^2.60.0",
     "rimraf": "^2.4.2",
     "simple-argparse": "^0.3.0",
-    "svc-fbr": "^0.1.0"
+    "svc-fbr": "^0.2.0"
   },
   "devDependencies": {
     "async": "^1.4.2",
     "coveralls": "^2.11.3",
     "grunt": "^0.4.5",
     "grunt-cli": "^0.1.13",
-    "grunt-eslint": "^16.0.0",
+    "grunt-eslint": "^17.0.0",
     "grunt-mocha-test": "^0.12.7",
     "istanbul": "^0.3.17",
     "jayschema": "^0.3.1",
@@ -58,7 +55,7 @@
     "ncp": "^2.0.0",
     "rooted": "^1.0.1",
     "shelljs": "^0.5.1",
-    "should": "^7.0.1"
+    "should": "^7.0.2"
   },
   "bin": {
     "docvy-server": "bin/docvy-server"
