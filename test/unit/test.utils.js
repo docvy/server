@@ -20,7 +20,7 @@ var utils = require("../../lib/utils");
 
 describe("Utilities module", function() {
   it("should export the inbuilt configuration values", function() {
-    utils.config.should.eql(rooted("lib/config.json"));
+    should.deepEqual(rooted("lib/config.json"), utils.config);
   });
 });
 

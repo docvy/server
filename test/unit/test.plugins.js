@@ -15,9 +15,9 @@ var should = require("should");
 
 
 // own modules
-var dplugins = require("lib/plugins");
-var errors = require("lib/errors");
-var testUtils = require("test/utils");
+var dplugins = rooted("lib/plugins");
+var errors = rooted("lib/errors");
+var testUtils = rooted("test/utils");
 
 
 // copying over all test plugins

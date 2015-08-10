@@ -21,7 +21,7 @@ var should = require("should");
 
 
 // own modules
-var server = require("../../lib/server");
+var server = rooted("lib/server");
 
 
 // module variables
@@ -72,7 +72,7 @@ function testResponse(method, reqOptions, schema, done) {
 }
 
 
-describe("validate", function() {
+describe("validate endpoint reponses", function() {
   before(function(done) {
     server.start({ port: _port }, done);
   });
@@ -82,7 +82,12 @@ describe("validate", function() {
   });
 
   it("/files/", function(done) {
-    testResponse("get", { uri: "/files/" }, schemas.files, done);
+    testResponse("get", {
+      uri: "/files/",
+      qs: {
+        path: __dirname,
+      },
+    }, schemas.files, done);
   });
 
   it("/file/", function(done) {
