@@ -69,14 +69,6 @@ describe("Server.stop", function() {
     }); // request
   }
 
-  beforeEach(function(done) {
-    server.start(done);
-  });
-
-  afterEach(function(done) {
-    server.stop(done);
-  });
-
   it("should stop server", function(done) {
     var port = 9532;
     server.start({ port: port }, function() {
