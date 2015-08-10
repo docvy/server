@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/docvy/server",
   "dependencies": {
+    "async": "^1.4.2",
     "cli-output": "^0.0.0",
     "debug": "^2.2.0",
     "docvy-cache": "docvy/cache#develop",
