@@ -29,7 +29,6 @@
   },
   "homepage": "https://github.com/docvy/server",
   "dependencies": {
-    "async": "^1.4.2",
     "cli-output": "^0.0.0",
     "debug": "^2.2.0",
     "docvy-cache": "docvy/cache#develop",
@@ -44,6 +43,7 @@
     "simple-argparse": "^0.1.1"
   },
   "devDependencies": {
+    "async": "^1.4.2",
     "coveralls": "^2.11.3",
     "grunt": "^0.4.5",
     "grunt-cli": "^0.1.13",
@@ -55,6 +55,7 @@
     "mkdirp": "^0.5.1",
     "mocha-lcov-reporter": "^0.0.2",
     "ncp": "^2.0.0",
+    "rooted": "^1.0.1",
     "shelljs": "^0.5.1",
     "should": "^7.0.1"
   },

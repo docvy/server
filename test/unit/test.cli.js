@@ -10,17 +10,18 @@
 
 
 // npm-installed modules
-var request = require("request").defaults({json: true});
-var shell = require('shelljs');
+var request = require("request").defaults({ json: true });
+var rooted = require("rooted");
+var shell = require("shelljs");
 var should = require("should");
 
 
 // own modules
-var server = require("../../lib/server");
+var config = rooted("lib/config.json");
+var server = rooted("lib/server");
 
 
 // module variables
-var config = require("../../lib/config.json");
 var rootDir = process.cwd();
 var docvyCmd = rootDir + "/bin/docvy-server";
 
@@ -37,24 +38,24 @@ describe("CLI", function() {
     setTimeout(done, 1000);
   });
 
-  it("-s starts server in daemon mode", function(done) {
-    shell.exec(cmd("-s"), function(code) {
+  it("`start` starts server in daemon mode", function(done) {
+    shell.exec(cmd("start"), function(code) {
       code.should.eql(0);
       setTimeout(function() {
         request.get(url, function(err) {
-          should(err).not.be.ok;
+          should(err).not.be.ok();
           request.del(url + "/stop", function() { done(); });
         });
       }, 1000);
     });
   });
 
-  it("-x stops server", function(done) {
+  it("`stop` stops server", function(done) {
     server.start(function() {
-      shell.exec(cmd("-x"), function(code) {
+      shell.exec(cmd("stop"), function(code) {
         code.should.eql(0);
         request.get(url, function(err) {
-          err.should.be.ok;
+          err.should.be.ok();
           err.code.should.eql("ECONNREFUSED");
           done();
         }); // request
@@ -67,7 +68,7 @@ describe("CLI", function() {
     shell.exec(cmd("-s -p " + _port), function(code) {
       code.should.eql(0);
       request.get("http://localhost:" + _port, function(err) {
-        should(err).not.be.ok;
+        should(err).not.be.ok();
         request.del(url + "/stop", function() { done(); });
       }); // request.get
     }); // shell.exec
@@ -75,9 +76,9 @@ describe("CLI", function() {
 
   it.skip("-a attaches server to stdio", function(done) {
     var child = shell.exec(cmd("-s -a"), { async: true });
-    child.stdout.on('data', function() {
+    child.stdout.on("data", function() {
       request.get(url, function(err) {
-        should(err).not.be.ok;
+        should(err).not.be.ok();
         request.del(url + "/stop", function() { done(); });
       }); // request
     });
