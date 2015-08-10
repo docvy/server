@@ -23,10 +23,7 @@ var path = require("path");
 var async = require("async");
 var mkdirp = require("mkdirp");
 var ncp = require("ncp").ncp;
-
-
-// own modules
-var utils = require("../lib/utils");
+var utils = require("docvy-utils");
 
 
 function copyPlugins(done) {
